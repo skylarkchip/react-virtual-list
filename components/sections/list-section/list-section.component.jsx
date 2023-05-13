@@ -24,7 +24,7 @@ const ListSection = () => {
 
   if (products.length < 1) {
     return (
-      <Flex minH="50vh" my="6" justifyContent="center" alignItems="center">
+      <Flex minH="80vh" my="6" justifyContent="center" alignItems="flex-start">
         <Spinner
           thickness="4px"
           speed="0.65s"
