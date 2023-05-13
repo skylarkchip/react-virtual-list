@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
-import { Container, Flex } from "@chakra-ui/react";
+import { Container, Flex, Spinner } from "@chakra-ui/react";
 
 // Components
 const ProductList = dynamic(() =>
@@ -21,6 +21,20 @@ const ListSection = () => {
 
     fetchProducts();
   }, []);
+
+  if (products.length < 1) {
+    return (
+      <Flex minH="50vh" my="6" justifyContent="center" alignItems="center">
+        <Spinner
+          thickness="4px"
+          speed="0.65s"
+          emptyColor="gray.300"
+          color="black"
+          size="xl"
+        />
+      </Flex>
+    );
+  }
 
   return (
     <Container h="100vh">
