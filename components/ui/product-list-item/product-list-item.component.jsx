@@ -32,13 +32,12 @@ const ProductListItem = ({ style, index, products }) => {
         alignItems={{ base: "center", md: "flex-start" }}
         w="full"
       >
-        <AspectRatio
+        <Box
           border="1px"
           borderColor="gray.300"
           w="full"
-          h="250px"
-          ratio={1}
           borderRadius="md"
+          aspectRatio={1}
           overflow="hidden"
           flex="1"
         >
@@ -49,7 +48,7 @@ const ProductListItem = ({ style, index, products }) => {
             src={product.thumbnail}
             alt={product.title}
           />
-        </AspectRatio>
+        </Box>
         <Flex justifyContent="space-between" flex="1" w="full">
           <VStack w="full" spacing="6" align="left">
             <VStack spacing="0" w="full" align="left">

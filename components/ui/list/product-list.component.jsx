@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 import { FixedSizeList as FixedProductList } from "react-window";
 import AutoSizer from "react-virtualized-auto-sizer";
@@ -10,6 +10,14 @@ const ProductListItem = dynamic(() =>
 );
 
 const ProductList = ({ products }) => {
+  const [listItemSize, setListItemSize] = useState(300);
+
+  useEffect(() => {
+    if (window.screen.width <= 480) {
+      setListItemSize(650);
+    }
+  }, []);
+
   return (
     <Box w="full" h="full">
       <AutoSizer>
@@ -18,7 +26,7 @@ const ProductList = ({ products }) => {
             height={height}
             width={width}
             itemCount={products.length}
-            itemSize={350}
+            itemSize={listItemSize}
           >
             {({ index, style }) => (
               <ProductListItem
